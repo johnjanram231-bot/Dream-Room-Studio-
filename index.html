@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff7fc">
+  <meta name="description" content="A cute, pastel student dashboard to organize tasks, classes, study sessions, and OJT hours.">
+  <title>StudyBloom — Student Life Organizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="StudyBloom home">
+        <span class="brand-mark">✿</span>
+        <span><strong>StudyBloom</strong><small>your little study space</small></span>
+      </a>
+      <div class="profile-card">
+        <div class="avatar" aria-hidden="true">🌷</div>
+        <div><strong id="greetingName">Hey, student!</strong><small>One step at a time ✨</small></div>
+      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <button class="nav-link active" data-view="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-link" data-view="tasks"><span>☑</span> My Tasks <span class="nav-count" id="navTaskCount">0</span></button>
+        <button class="nav-link" data-view="schedule"><span>▦</span> Class Schedule</button>
+        <button class="nav-link" data-view="ojt"><span>◷</span> OJT Hours</button>
+      </nav>
+      <div class="sidebar-note">
+        <span>🌱</span>
+        <strong>Little reminder</strong>
+        <p>You don't have to do everything today. Just start with one thing.</p>
+      </div>
+      <div class="sidebar-bottom">
+        <span class="tiny-flower">✿</span> Made for your student era
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+        <div>
+          <p class="eyebrow" id="todayLabel">YOUR STUDY SPACE</p>
+          <h1 id="pageTitle">A little progress is still progress <span>♡</span></h1>
+        </div>
+        <button class="date-pill" id="todayPill" title="Today's date">📅 <span>Today</span></button>
+      </header>
+
+      <section class="view active" id="dashboardView">
+        <div class="welcome-banner">
+          <div class="welcome-copy">
+            <span class="mini-label">YOUR DAILY DOSE OF PRODUCTIVITY</span>
+            <h2>Make today<br>count, gently. <span>🌸</span></h2>
+            <p>A cozy little corner to keep your student life together.</p>
+            <button class="button button-primary" id="bannerAddTask">＋ Add a task</button>
+          </div>
+          <div class="banner-art" aria-hidden="true">
+            <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+            <div class="book book-back"></div><div class="book book-front"></div>
+            <div class="plant-pot">🪴</div><div class="sparkle s1">✦</div><div class="sparkle s2">✧</div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card pink-stat"><div class="stat-icon">📝</div><p>Tasks to do</p><strong id="statTasks">0</strong><small>You've got this!</small></article>
+          <article class="stat-card purple-stat"><div class="stat-icon">🌟</div><p>Tasks completed</p><strong id="statCompleted">0</strong><small>Look at you go</small></article>
+          <article class="stat-card peach-stat"><div class="stat-icon">⏳</div><p>OJT hours logged</p><strong id="statOjt">0 <small>hrs</small></strong><small id="ojtProgressLabel">700-hour goal</small></article>
+          <article class="stat-card green-stat"><div class="stat-icon">🌷</div><p>Completion rate</p><strong id="statRate">0%</strong><small>Small wins matter</small></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="panel task-panel">
+            <div class="panel-heading"><div><p class="eyebrow">STAY ON TRACK</p><h3>Upcoming tasks <span>♡</span></h3></div><button class="text-button" data-go="tasks">View all →</button></div>
+            <div id="dashboardTaskList" class="task-list"></div>
+            <div id="emptyDashboardTasks" class="empty-state"><span>🌼</span><strong>Nothing on your list yet</strong><p>Add a task and make your plan bloom.</p></div>
+          </section>
+          <section class="panel focus-panel">
+            <div class="panel-heading"><div><p class="eyebrow">TAKE A BREATHER</p><h3>Focus timer <span>☁️</span></h3></div></div>
+            <p class="focus-subtitle">One thing at a time, bestie.</p>
+            <div class="timer-circle"><div><strong id="timerDisplay">25:00</strong><span id="timerMode">FOCUS TIME</span></div></div>
+            <div class="timer-presets"><button class="preset active" data-minutes="25">25 min</button><button class="preset" data-minutes="15">15 min</button><button class="preset" data-minutes="5">5 min break</button></div>
+            <div class="timer-actions"><button class="button button-primary" id="timerStart">▶ Start</button><button class="button button-soft" id="timerReset">↻ Reset</button></div>
+            <p class="timer-message" id="timerMessage" aria-live="polite">You've got this. Let's begin ✨</p>
+          </section>
+        </div>
+        <section class="quote-card"><span>“</span><p id="dailyQuote">You are allowed to be a work in progress and still be proud of yourself.</p><span class="quote-flower">✿</span></section>
+      </section>
+
+      <section class="view" id="tasksView">
+        <div class="section-intro"><div><p class="eyebrow">YOUR PERSONAL CHECKLIST</p><h2>My tasks <span>📝</span></h2><p>Brain dump everything, then take it one step at a time.</p></div><button class="button button-primary" id="addTaskButton">＋ New task</button></div>
+        <div class="toolbar"><div class="filter-tabs" id="taskFilters"><button class="filter-tab active" data-filter="all">All</button><button class="filter-tab" data-filter="active">To do</button><button class="filter-tab" data-filter="completed">Completed</button></div><input id="taskSearch" class="search-input" type="search" placeholder="⌕ Search tasks..." aria-label="Search tasks"></div>
+        <div class="panel"><div id="allTaskList" class="task-list full-task-list"></div><div id="emptyAllTasks" class="empty-state"><span>🧸</span><strong>No tasks found</strong><p>Add something to your list or try another search.</p></div></div>
+      </section>
+
+      <section class="view" id="scheduleView">
+        <div class="section-intro"><div><p class="eyebrow">PLAN YOUR WEEK</p><h2>Class schedule <span>📚</span></h2><p>Keep your classes in one cute, organized place.</p></div><button class="button button-primary" id="addClassButton">＋ Add class</button></div>
+        <div class="schedule-grid" id="scheduleGrid"></div>
+        <div class="panel schedule-help"><span>💡</span><div><strong>Tip</strong><p>Your schedule is saved in this browser. Add your own classes to personalize the week.</p></div></div>
+      </section>
+
+      <section class="view" id="ojtView">
+        <div class="section-intro"><div><p class="eyebrow">YOUR EXPERIENCE COUNTS</p><h2>OJT hour tracker <span>💼</span></h2><p>Log your completed hours and keep an eye on your required total.</p></div><button class="button button-primary" id="addOjtButton">＋ Log hours</button></div>
+        <div class="ojt-hero panel"><div class="ojt-hero-top"><div><span class="mini-label">YOUR PROGRESS</span><h3><span id="ojtTotalBig">0</span> <small>hours completed</small></h3><p id="ojtRemaining">700 hours remaining — keep going!</p></div><div class="ojt-badge">🎓</div></div><div class="progress-track"><div id="ojtProgressBar" class="progress-fill"></div></div><div class="progress-labels"><span>0 hours</span><strong id="ojtPercent">0% complete</strong><span id="ojtGoalLabel">700 hours</span></div><div class="goal-setting"><label for="ojtGoalInput">Required hours</label><input id="ojtGoalInput" type="number" min="1" max="10000" value="700"><button class="button button-soft" id="saveOjtGoal">Save goal</button></div></div>
+        <div class="panel"><div class="panel-heading"><div><p class="eyebrow">YOUR WORK LOG</p><h3>Recent entries</h3></div></div><div id="ojtLogList" class="ojt-log-list"></div><div id="emptyOjtLogs" class="empty-state"><span>🌱</span><strong>Your progress starts here</strong><p>Log your first OJT day to see it here.</p></div></div>
+      </section>
+
+      <footer class="footer"><span>✿ StudyBloom</span><span>Made with a little love & lots of pastel ♡</span><button id="exportData">Export my data ↓</button><button id="resetData" class="danger-link">Reset demo data</button></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="taskModal" role="dialog" aria-modal="true" aria-labelledby="taskModalTitle">
+    <form class="modal" id="taskForm"><button type="button" class="modal-close" data-close="taskModal" aria-label="Close">×</button><span class="modal-emoji">🌷</span><h2 id="taskModalTitle">Add a little task</h2><p>Every big thing starts with a small step.</p>
+      <label for="taskTitle">Task name <span>*</span></label><input id="taskTitle" maxlength="100" required placeholder="e.g. Finish my project documentation">
+      <div class="form-row"><div><label for="taskSubject">Subject / category</label><input id="taskSubject" maxlength="40" placeholder="e.g. Thesis"></div><div><label for="taskDue">Due date</label><input id="taskDue" type="date"></div></div>
+      <label for="taskPriority">Priority</label><select id="taskPriority"><option value="low">Low — no rush</option><option value="medium" selected>Medium — coming up</option><option value="high">High — important!</option></select>
+      <div class="modal-actions"><button type="button" class="button button-soft" data-close="taskModal">Cancel</button><button type="submit" class="button button-primary">Save task ✨</button></div>
+    </form>
+  </div>
+
+  <div class="modal-backdrop" id="classModal" role="dialog" aria-modal="true" aria-labelledby="classModalTitle">
+    <form class="modal" id="classForm"><button type="button" class="modal-close" data-close="classModal" aria-label="Close">×</button><span class="modal-emoji">📚</span><h2 id="classModalTitle">Add a class</h2><p>Make space for the things you're learning.</p>
+      <label for="className">Class name <span>*</span></label><input id="className" maxlength="80" required placeholder="e.g. Computer Networking">
+      <div class="form-row"><div><label for="classDay">Day</label><select id="classDay"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></div><div><label for="classTime">Start time</label><input id="classTime" type="time" value="08:00" required></div></div>
+      <label for="classRoom">Room / notes</label><input id="classRoom" maxlength="80" placeholder="e.g. Lab 2">
+      <div class="modal-actions"><button type="button" class="button button-soft" data-close="classModal">Cancel</button><button type="submit" class="button button-primary">Save class ✨</button></div>
+    </form>
+  </div>
+
+  <div class="modal-backdrop" id="ojtModal" role="dialog" aria-modal="true" aria-labelledby="ojtModalTitle">
+    <form class="modal" id="ojtForm"><button type="button" class="modal-close" data-close="ojtModal" aria-label="Close">×</button><span class="modal-emoji">💼</span><h2 id="ojtModalTitle">Log OJT hours</h2><p>Every hour is a step closer to your goal.</p>
+      <label for="ojtDate">Date <span>*</span></label><input id="ojtDate" type="date" required>
+      <div class="form-row"><div><label for="ojtHours">Hours completed <span>*</span></label><input id="ojtHours" type="number" min="0.25" max="24" step="0.25" required placeholder="e.g. 8"></div><div><label for="ojtCompany">Company / task</label><input id="ojtCompany" maxlength="100" placeholder="e.g. Hardware troubleshooting"></div></div>
+      <label for="ojtNotes">Notes (optional)</label><textarea id="ojtNotes" rows="3" maxlength="300" placeholder="What did you learn today?"></textarea>
+      <div class="modal-actions"><button type="button" class="button button-soft" data-close="ojtModal">Cancel</button><button type="submit" class="button button-primary">Save hours ✨</button></div>
+    </form>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
