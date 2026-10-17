@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff4fb"><title>Dream Room Studio ✧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="app">
+<header><a class="brand" href="#"><span class="logo">✧</span><span><b>dream room</b><small>STUDIO · MAKE IT YOURS</small></span></a>
+<div class="top-actions"><span id="saveStatus">● Saved in this browser</span><button id="resetBtn" class="icon" title="Reset room">↻</button><button id="exportBtn" class="dark">⇩ Export design</button></div></header>
+<section class="intro"><div><p class="eyebrow">A LITTLE SPACE JUST FOR YOU ✦</p><h1>Make room for <em>magic.</em></h1><p>Your imagination, your little sanctuary. Mix, match, and create a room that feels like you.</p></div><div class="sticker-title">✦ <span>dream<br>in pastel</span> ♡</div></section>
+<main class="layout"><section class="preview-column">
+<div class="preview-heading"><b>● YOUR DREAM ROOM</b><div><button id="randomBtn">✧ Surprise me</button><button id="clearBtn">Clear decor</button></div></div>
+<div class="frame"><div class="room" id="room">
+<div class="wall" id="wall"><div id="pattern" class="pattern"></div><div class="window"><div class="sky"><span>☼</span><i>☁</i></div><div class="cross-v"></div><div class="cross-h"></div><div class="curtain left"></div><div class="curtain right"></div></div>
+<div class="art a1" id="a1">♡</div><div class="art a2" id="a2">✧</div><div class="shelf" id="shelf">📚　🪴　🕯️</div></div>
+<div class="floor" id="floor"><div class="floorlines"></div></div>
+<div class="rug" id="rug">✿</div>
+<div class="bed" id="bed"><div class="headboard"></div><div class="pillow p1"></div><div class="pillow p2"></div><div class="duvet"></div><div class="fold"></div><div class="skirt"></div><div class="leg l1"></div><div class="leg l2"></div><span class="crown">♕</span></div>
+<div class="nightstand" id="nightstand"><div class="drawer"></div><div class="knob"></div><div class="lamp"><i></i><b></b></div></div>
+<div class="plant" id="plant"><span>♥</span><i>♥</i><b>♥</b><div>▰</div></div>
+<div class="floorlamp" id="floorlamp"><i></i><b></b></div><div class="beanbag" id="beanbag">♡</div>
+<div class="sparkles" id="sparkles"><span>✧</span><span>✦</span><span>·</span><span>✧</span></div><div id="stickers"></div>
+<div class="roomname" id="roomname">my little sanctuary ♡</div></div>
+<div class="frame-footer"><span>✦ Your room, your rules</span><b id="mood">Soft & dreamy</b></div></div>
+<div class="tip">💡 <span><b>Styling tip</b> Mix one main pastel with a lighter neutral to keep your room soft and balanced.</span></div>
+</section>
+<aside class="editor"><div class="editor-head"><div><p class="eyebrow">DESIGN YOUR SPACE</p><h2>Room editor <em>✧</em></h2></div><span class="badge">✿ EDIT MODE</span></div>
+<nav class="tabs"><button class="tab active" data-tab="colors">◉ Colors</button><button class="tab" data-tab="furniture">⌂ Furniture</button><button class="tab" data-tab="decor">✦ Decor</button></nav>
+<section class="panel active" id="colors">
+<div class="group"><div class="label"><b>Room palette</b><small>Pick your mood</small></div><div class="palettes">
+<button class="palette active" data-palette="lavender"><i class="pal lavender"></i><span><b>Lavender dream</b><small>Pastel purple</small></span></button>
+<button class="palette" data-palette="pink"><i class="pal pink"></i><span><b>Strawberry milk</b><small>Blush pink</small></span></button>
+<button class="palette" data-palette="blue"><i class="pal blue"></i><span><b>Cloud nine</b><small>Baby blue</small></span></button>
+<button class="palette" data-palette="mint"><i class="pal mint"></i><span><b>Mint fairy</b><small>Soft green</small></span></button></div></div>
+<div class="group"><div class="label"><b>Wall color</b><small id="wallHex">#E8DDF8</small></div><div class="swatches" id="wallSwatches">
+<button class="swatch selected" data-color="#e8ddf8" style="--c:#e8ddf8" aria-label="Lavender"></button><button class="swatch" data-color="#ffe0ed" style="--c:#ffe0ed" aria-label="Pink"></button><button class="swatch" data-color="#dff0ff" style="--c:#dff0ff" aria-label="Blue"></button><button class="swatch" data-color="#dff3e6" style="--c:#dff3e6" aria-label="Mint"></button><button class="swatch" data-color="#fff0d9" style="--c:#fff0d9" aria-label="Cream"></button><label class="custom">＋<input type="color" id="customWall" value="#e8ddf8" aria-label="Custom wall color"></label></div></div>
+<div class="group"><div class="label"><b>Floor finish</b><small>Change the vibe</small></div><div class="choices"><button class="choice active" data-floor="wood">🪵 Warm wood</button><button class="choice" data-floor="light">☁️ Cream</button><button class="choice" data-floor="rose">🌸 Rosy</button></div></div>
+<div class="group"><div class="label"><b>Wall pattern</b><small>Little details</small></div><div class="choices"><button class="choice active" data-pattern="plain">Plain</button><button class="choice" data-pattern="stars">✦ Stars</button><button class="choice" data-pattern="dots">· Dots</button><button class="choice" data-pattern="hearts">♡ Hearts</button></div></div>
+</section>
+<section class="panel" id="furniture">
+<div class="group"><div class="label"><b>Bed style</b><small>Your cozy center</small></div><div class="options">
+<button class="option active" data-bed="classic"><span>🛏️</span><span><b>Cloud classic</b><small>Soft and timeless</small></span><strong>✓</strong></button>
+<button class="option" data-bed="royal"><span>👑</span><span><b>Fairy princess</b><small>Extra dreamy details</small></span><strong>✓</strong></button>
+<button class="option" data-bed="minimal"><span>▰</span><span><b>Minimal daybed</b><small>Simple and clean</small></span><strong>✓</strong></button></div></div>
+<div class="group"><div class="label"><b>Bedding color</b><small>Mix your textures</small></div><div class="swatches" id="beddingSwatches"><button class="swatch selected" data-color="#f6b8d5" style="--c:#f6b8d5"></button><button class="swatch" data-color="#c9b6ef" style="--c:#c9b6ef"></button><button class="swatch" data-color="#b6dff3" style="--c:#b6dff3"></button><button class="swatch" data-color="#c6e4ce" style="--c:#c6e4ce"></button><button class="swatch" data-color="#fff1d7" style="--c:#fff1d7"></button><label class="custom">＋<input type="color" id="customBedding" value="#f6b8d5" aria-label="Custom bedding color"></label></div></div>
+<div class="group"><div class="label"><b>Rug shape</b><small>Ground your space</small></div><div class="choices"><button class="choice active" data-rug="oval">Oval</button><button class="choice" data-rug="round">Round</button><button class="choice" data-rug="rectangle">Rectangle</button><button class="choice" data-rug="off">No rug</button></div></div>
+</section>
+<section class="panel" id="decor">
+<div class="group"><div class="label"><b>Furniture & accents</b><small>Show or hide pieces</small></div><div class="toggles">
+<label class="toggle"><span>🪴</span><span><b>Leafy plant</b><small>A little nature</small></span><input type="checkbox" data-toggle="plant" checked><i></i></label>
+<label class="toggle"><span>🛋️</span><span><b>Beanbag chair</b><small>Comfy corner</small></span><input type="checkbox" data-toggle="beanbag" checked><i></i></label>
+<label class="toggle"><span>💡</span><span><b>Floor lamp</b><small>Ambient glow</small></span><input type="checkbox" data-toggle="floorlamp"><i></i></label>
+<label class="toggle"><span>📚</span><span><b>Floating shelf</b><small>Books and treasures</small></span><input type="checkbox" data-toggle="shelf" checked><i></i></label>
+<label class="toggle"><span>🖼️</span><span><b>Wall art</b><small>Little wall details</small></span><input type="checkbox" data-toggle="wallart" checked><i></i></label>
+<label class="toggle"><span>✨</span><span><b>Magic sparkles</b><small>Extra fairy dust</small></span><input type="checkbox" data-toggle="sparkles" checked><i></i></label></div></div>
+<div class="group"><div class="label"><b>Room name</b><small>Make it yours</small></div><input id="nameInput" class="textinput" maxlength="34" value="my little sanctuary ♡" placeholder="My dream room"><button class="soft full" id="applyName">Update room name</button></div>
+<div class="group"><div class="label"><b>Decor stickers</b><small>Add a little magic</small></div><div class="stickers-list"><button data-sticker="🌙">🌙<small>Moon</small></button><button data-sticker="⭐">⭐<small>Star</small></button><button data-sticker="🦋">🦋<small>Butterfly</small></button><button data-sticker="♡">♡<small>Heart</small></button><button data-sticker="🌸">🌸<small>Blossom</small></button></div><p class="micro">Tap a sticker to add it to the room. Tap a sticker in the room to remove it.</p></div>
+</section>
+<div class="editor-foot"><span>✧ Design saves automatically</span><button id="saveBtn">Save now</button></div>
+</aside></main>
+<section class="note"><span>♡</span><div><b>There's no wrong way to dream.</b><p>Play around, try a new palette, and make a little space that makes you happy.</p></div><strong>✧ ✦ ✧</strong></section>
+<footer><b>✧ DREAM ROOM STUDIO</b><span>Made with love, pastel, and a little magic.</span><button id="importBtn">Import design ↑</button><input type="file" id="importFile" accept=".json,application/json" hidden></footer>
+</div><div class="toast" id="toast" role="status" aria-live="polite"></div><script src="script.js"></script></body></html>
